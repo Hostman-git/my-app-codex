@@ -163,6 +163,17 @@ The frontend package keeps TypeScript, Vite, and React build tooling in `depende
 
 The backend package keeps TypeScript and Node/Express type packages in `dependencies` so Hostman production installs can still compile `dist`.
 
+### Docker Deployment
+
+The root `Dockerfile` builds both apps in a Node.js 24 environment, copies the frontend build into `backend/public`, and starts the backend on port `4000`.
+
+```bash
+docker build -t runmap .
+docker run -p 4000:4000 --env-file backend/.env runmap
+```
+
+No Dockerfile uses `apt-get` for Node dependencies. System packages, if ever needed, should be installed with `apt-get` or `apk`; JavaScript dependencies are installed only with separate `npm install` commands after `package.json` is copied.
+
 ## Deployment Checklist
 
 - [ ] `frontend/.env` and `backend/.env` are created locally.
