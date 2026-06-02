@@ -137,11 +137,14 @@ git push -u origin main
 ### Frontend Static App
 
 - Root directory: `frontend`
+- Install command: `npm install`
 - Build command: `npm run build`
 - Output directory: `dist`
 - Environment variables:
   - `VITE_API_URL=https://your-backend-domain`
   - `VITE_ORS_API_KEY=your-openrouteservice-api-key`
+
+The frontend package keeps TypeScript, Vite, and React build tooling in `dependencies` so Hostman production installs can still run `npm run build`.
 
 ### Backend Node.js App
 
@@ -157,6 +160,8 @@ git push -u origin main
   - `FRONTEND_ORIGIN=https://your-frontend-domain`
   - `VITE_ORS_API_KEY=your-openrouteservice-api-key`
 - Runtime: Node.js 24+
+
+The backend package keeps TypeScript and Node/Express type packages in `dependencies` so Hostman production installs can still compile `dist`.
 
 ## Deployment Checklist
 
