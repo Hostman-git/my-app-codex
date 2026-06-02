@@ -1,0 +1,15 @@
+{
+  "name": "runmap",
+  "private": true,
+  "version": "1.0.0",
+  "description": "RunMap full-stack running route planner with React, Express, TypeScript and SQLite.",
+  "scripts": {
+    "dev": "concurrently \"npm run dev --prefix backend\" \"npm run dev --prefix frontend\"",
+    "build": "npm run build --prefix frontend && npm run build --prefix backend",
+    "typecheck": "npm run typecheck --prefix frontend && npm run typecheck --prefix backend",
+    "start": "npm run start --prefix backend"
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.2"
+  }
+}
